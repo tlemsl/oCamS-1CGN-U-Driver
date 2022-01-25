@@ -15,7 +15,7 @@
   <group ns="/stereo" >
     <node pkg="nodelet" type="nodelet" name="stereo_nodelet"  args="manager"/>
     <node pkg="stereo_image_proc" type="stereo_image_proc" name="stereo_image_proc">
-         <param name="disparity_range" value="128"/>
+         <param name="disparity_range" value="512"/> <!-- default = 128 -->
     </node>
   </group>
             
@@ -33,9 +33,9 @@
       <param name="Odom/FillInfoData"  type="string" value="$(arg rtabmapviz)"/> 
       <param name="OdomF2M/MaxSize"    type="string" value="2000"/> <!-- maximum features map size, default 2000 -->
       <param name="Vis/EstimationType" type="string" value="0"/> <!-- 0=3D->3D 1=3D->2D (PnP) -->
-      <param name="Vis/MaxDepth"       type="string" value="20"/>
+      <param name="Vis/MaxDepth"       type="string" value="100"/>
       <param name="Vis/MinInliers"     type="string" value="10"/>
-      <param name="Vis/MaxFeatures"    type="string" value="1000"/> <!-- maximum features extracted by image, default 1000 -->
+      <param name="Vis/MaxFeatures"    type="string" value="600"/> <!-- maximum features extracted by image, default 1000 -->
       <param name="GFTT/MinDistance"   type="string" value="0"/>
       <param name="GFTT/QualityLevel"  type="string" value="0.00001"/>
 
@@ -64,7 +64,7 @@
       <param name="Grid/DepthDecimation"              type="string" value="4"/>
       <param name="Grid/FlatObstacleDetected"         type="string" value="true"/>
       <param name="Kp/MaxFeatures"                    type="string" value="200"/>
-      <param name="Kp/MaxDepth"                       type="string" value="10"/>
+      <param name="Kp/MaxDepth"                       type="string" value="20"/>
       <param name="Kp/DetectorStrategy"               type="string" value="0"/>   <!-- use SURF -->
       <param name="SURF/HessianThreshold"             type="string" value="1000"/>
       <param name="Vis/EstimationType"                type="string" value="0"/>   <!-- 0=3D->3D, 1=3D->2D (PnP) -->

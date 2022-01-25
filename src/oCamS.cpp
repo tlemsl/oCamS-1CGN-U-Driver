@@ -840,7 +840,7 @@ private:
                 publishImage(left_rgb, left_image_pub, "left_frame", now, sensor_msgs::image_encodings::BGR8);
             }
             if (right_image_pub.getNumSubscribers() > 0) {
-                publishImage(right_mono, right_image_pub, "right_frame", now, sensor_msgs::image_encodings::MONO8);
+                publishImage(right_rgb, right_image_pub, "right_frame", now, sensor_msgs::image_encodings::BGR8);
             }
             if (left_cam_info_pub.getNumSubscribers() > 0) {
                 publishCamInfo(left_cam_info_pub, left_info, now);
@@ -852,7 +852,7 @@ private:
                 publishImage(left_rect_color, left_rect_pub, "left_frame", now, sensor_msgs::image_encodings::BGR8);
             }
             if (right_rect_pub.getNumSubscribers() > 0) {
-                publishImage(right_rect_mono, right_rect_pub, "left_frame", now, sensor_msgs::image_encodings::MONO8);
+                publishImage(right_rect_mono, right_rect_pub, "left_frame", now, sensor_msgs::image_encodings::MONO8); //default = left_frame
             }
 
             if (disparity_image_pub.getNumSubscribers() > 0) {
@@ -887,7 +887,8 @@ private:
             }
 
             if (show_image_) {
-                cv::imshow("Right", right_rgb);
+                cv::imshow("Right raw", right_raw);
+                cv::imshow("Left raw", right_raw);
                 //cv::imshow("left", left_rect_color);
                 cv::waitKey(1);
             }
